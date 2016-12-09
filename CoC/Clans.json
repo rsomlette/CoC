@@ -1,0 +1,21 @@
+{
+	"items": [
+				  {
+				  "tag": "string",
+				  "name": "string",
+				  "location": {
+				  "id": 0,
+				  "name": "string",
+				  "isCountry": true
+				  },
+				  "badgeUrls": {
+				  "small": "string",
+				  "large": "string",
+				  "medium": "string"
+				  },
+				  "clanLevel": 0,
+				  "clanPoints": 0,
+				  "members": 0
+				  }
+			  ]
+}
