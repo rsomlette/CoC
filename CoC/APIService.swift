@@ -20,7 +20,7 @@ enum APIService {
 }
 
 extension APIService: TargetType {
-	var baseURL: URL { return URL(string: "https://api.clashofclans.com/v1/")! }
+	var baseURL: URL { return URL(string: "https://api.clashofclans.com/v1")! }
 
 	var path: String {
 		switch self {

@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import Mapper
+//import Mapper
 import RealmSwift
+import ObjectMapper
 
 final class Clan: Object, Mappable {
 
@@ -19,13 +20,26 @@ final class Clan: Object, Mappable {
 	private(set) dynamic var members: Int = 0
 
 
-	//MAPPER
-	convenience init(map: Mapper) throws {
+	//Model MAPPER
+//	convenience init(map: Mapper) throws {
+//		self.init()
+//		try tag = map.from("tag")
+//		try name = map.from("name")
+//		try clanLevel = map.from("clanLevel")
+//		try clanPoints = map.from("clanPoints")
+//		try members = map.from("members")
+//	}
+
+	//Object MAPPER
+	required convenience init?(map: Map) {
 		self.init()
-		try tag = map.from("tag")
-		try name = map.from("name")
-		try clanLevel = map.from("clanLevel")
-		try clanPoints = map.from("clanPoints")
-		try members = map.from("members")
+	}
+
+	func mapping(map: Map) {
+		tag <- map["tag"]
+		name <- map["name"]
+		clanLevel <- map["clanLevel"]
+		clanPoints <- map["clanPoints"]
+		members <- map["members"]
 	}
 }

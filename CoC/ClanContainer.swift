@@ -7,16 +7,29 @@
 //
 
 import Foundation
-import Mapper
+//import Mapper
+import ObjectMapper
 import RealmSwift
 
 final class ClanContainer: Mappable {
 
-	private(set) var items = [Clan]()
+	private(set) var items = List<Clan>()
 
 	//MAPPER
-	convenience init(map: Mapper) throws {
+//	convenience init(map: Mapper) throws {
+//		self.init()
+//		try items = map.from("items", transformation: Transform.toList()) //, transformation: Transform
+//	}
+
+	//Object MAPPER
+	required convenience init?(map: Map) {
 		self.init()
-		try items = map.from("items")
 	}
+
+	func mapping(map: Map) {
+		items <- (map["items"], transformation: RealmListTransform<Clan>())
+
+	}
+
+
 }
