@@ -17,13 +17,13 @@ target 'CoC' do
   # Pods for CoC
   pod 'RxSwift', '~> 3.0.0'
   pod 'RxCocoa', '~> 3.0.0'
-  pod 'Moya/RxSwift', '~> 8.0.0-beta.5'
-#  pod 'Moya-ModelMapper/RxSwift', '~> 4.0.0-beta.3'
-  pod 'Moya-ObjectMapper', :git => 'https://github.com/ivanbruel/Moya-ObjectMapper'
+  pod 'Moya/RxSwift', '~> 8.0.0-beta.3'
+  pod 'Moya-ModelMapper/RxSwift', '~> 4.0.0-beta.3'
+#  pod 'Moya-ObjectMapper', :git => 'https://github.com/ivanbruel/Moya-ObjectMapper'
   # pod 'ObjectMapper', '~> 2.0'
   pod 'RxOptional', '~> 3.1.0'
   pod 'RxRealm',  '~> 0.3.2'
   pod 'RealmSwift', '~> 2.1.1'
 
-  pod 'ObjectMapper', '~> 2.0'
+#  pod 'ObjectMapper', '~> 2.0'
 end
