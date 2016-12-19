@@ -20,6 +20,7 @@
 		8DC2C55B1DFB27070069A869 /* RealmListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */; };
 		C99DD0821DFE5166003BD1D7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0811DFE5166003BD1D7 /* Errors.swift */; };
 		C99DD0841DFFA98B003BD1D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0831DFFA98B003BD1D7 /* Network.swift */; };
+		C9AAFBC71E0716F30029EC19 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */; };
 		C9AE08BC5622A5746A83B5C2 /* Pods_CoC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2269A03F0A81017156546083 /* Pods_CoC.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		A091BE1AD3617E483FAABC0C /* Pods-CoC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoC.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoC/Pods-CoC.release.xcconfig"; sourceTree = "<group>"; };
 		C99DD0811DFE5166003BD1D7 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C99DD0831DFFA98B003BD1D7 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				8DC2C5561DFB1A9F0069A869 /* APIService.swift */,
 				8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */,
 				C99DD0831DFFA98B003BD1D7 /* Network.swift */,
+				C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C99DD0821DFE5166003BD1D7 /* Errors.swift in Sources */,
 				C99DD0841DFFA98B003BD1D7 /* Network.swift in Sources */,
 				8DC2C5591DFB1EED0069A869 /* TempFetcher.swift in Sources */,
+				C9AAFBC71E0716F30029EC19 /* Observable+ObjectMapper.swift in Sources */,
 				8DC2C54E1DFB19470069A869 /* Clan.swift in Sources */,
 				8DC2C5501DFB19560069A869 /* ClanContainer.swift in Sources */,
 			);

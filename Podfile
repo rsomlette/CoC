@@ -20,9 +20,10 @@ target 'CoC' do
   pod 'Moya/RxSwift', '~> 8.0.0-beta.3'
 #  pod 'Moya-ModelMapper/RxSwift', '~> 4.0.0-beta.3'
   pod 'Moya-ObjectMapper', :git => 'https://github.com/ivanbruel/Moya-ObjectMapper'
-  pod 'RxOptional', '~> 3.1.0'
+#  pod 'RxOptional', '~> 3.1.0'
   pod 'RxRealm',  '~> 0.3.2'
   pod 'RealmSwift', '~> 2.1.1'
-
+#  pod 'RxAlamofire', '~> 3.0.0'
 #  pod 'ObjectMapper', '~> 2.0'
+#	pod 'AlamofireObjectMapper', '~> 4.0'
 end

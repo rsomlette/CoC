@@ -11,35 +11,6 @@ import RealmSwift
 //import Mapper
 import ObjectMapper
 
-//
-//extension Transform {
-//
-//	public static func toList<T>() -> (_ object: Any) throws -> List<T> where T: Mappable
-//	{
-//		return { object in
-//			guard let objects = object as? [String: Any] else {
-//				throw MapperError.convertibleError(value: object, type: Any.self)
-//			}
-//
-//			var result = List<T>()
-//			for entry in objects {
-//				let model = try! T(map: Mapper(JSON: entry))
-//				result.append(model)
-//			}
-////			var dictionary: [U: T] = [:]
-////			for object in objects {
-////				let model = try T(map: Mapper(JSON: object))
-////				dictionary[getKey(model)] = model
-////			}
-//
-//			return result
-//		}
-//	}
-//}
-
-
-
-
 class RealmListTransform<T: Object>: TransformType where T: Mappable {
 
 	typealias Object = List<T>

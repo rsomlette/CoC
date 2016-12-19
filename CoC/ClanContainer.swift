@@ -18,7 +18,7 @@ final class ClanContainer: Mappable {
 	//MAPPER
 //	convenience init(map: Mapper) throws {
 //		self.init()
-//		try items = map.from("items", transformation: Transform.toList()) //, transformation: Transform
+//		try items = map.from("items", transformation: Transform.transformToList<Clan>()) //, transformation: Transform
 //	}
 
 	//Object MAPPER
@@ -28,7 +28,6 @@ final class ClanContainer: Mappable {
 
 	func mapping(map: Map) {
 		items <- (map["items"], transformation: RealmListTransform<Clan>())
-
 	}
 
 
