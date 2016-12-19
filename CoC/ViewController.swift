@@ -26,8 +26,8 @@ class ViewController: UIViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
 
 	let disposeBag = DisposeBag()
-	var provider: RxMoyaProvider<APIService>!
-	var tempFetcher: TempFetcher!
+	var provider: Network! // need to keep a reference to the network. will be implemented in the fetcher's init.
+//	var tempFetcher: TempFetcher!
 
 	var latestSearch: Observable<String> {
 		return searchBar.rx
@@ -41,17 +41,16 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		setupRx()
-		self.tempFetcher = TempFetcher()
-		provider = RxMoyaProvider<APIService>(endpointClosure: endpointClosure, plugins: [plugins])
+//		self.tempFetcher = TempFetcher()
+		provider = Network()
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
 	}
 
 
-	private func setupRx() {
-		latestSearch.observeOn(MainScheduler.instance)
+	private func setupRx() { // TODO: Handle error
+		latestSearch.observeOn(ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background)) //TODO: work more on the task priority.
 			.flatMapLatest({ (search) -> Observable<Response> in
-				return self.provider.request(APIService.Clans(search: search))
-//				return Network.request(service: APIService.Clans(search: search))
+				return self.provider.request(service: APIService.Clans(search: search))
 			})
 			.mapObject(ClanContainer.self)
 			.flatMapLatest { Observable<List<Clan>>.just($0.items) }
@@ -59,18 +58,6 @@ class ViewController: UIViewController {
 				cell.textLabel?.text = element.name
 			}
 			.addDisposableTo(disposeBag)
-
-
-		// Here we tell table view that if user clicks on a cell,
-		// and the keyboard is still visible, hide it
-//		tableView.rx
-//
-//			.subscribeNext { indexPath in
-//				if self.searchBar.isFirstResponder() == true {
-//					self.view.endEditing(true)
-//				}
-//			}
-//			.addDisposableTo(disposeBag)
 
 	}
 

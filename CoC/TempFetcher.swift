@@ -8,18 +8,14 @@
 
 import Foundation
 import Moya
-//import Moya_ModelMapper
-//import Moya_ObjectMapper
-//import RxOptional
 import RxSwift
 import RealmSwift
 
 struct TempFetcher {
-//
-//	let provider: RxMoyaProvider<APIService>
-//	let clanName: Observable<String>
+
+	let network = Network()
 	let disposeBag = DisposeBag()
-//
+
 	func trackClans(name: String) -> Observable<List<Clan>> {
 		return findRepository(name: name)
 			.flatMapLatest({ (clans) -> Observable<List<Clan>> in
@@ -28,7 +24,7 @@ struct TempFetcher {
 	}
 
 	private func findRepository(name: String) -> Observable<ClanContainer> {
-		return Network.request(service: APIService.Clans(search: name))
+		return network.request(service: APIService.Clans(search: name))
 			.debug()
 			.mapObject(ClanContainer.self)
 	}

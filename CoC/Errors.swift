@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 enum NetworkError: Error {
-	case invalidNetwork
+	case invalidNetwork(code: Int, message: String)
 }
