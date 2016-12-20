@@ -18,6 +18,11 @@
 		8DC2C5571DFB1A9F0069A869 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C5561DFB1A9F0069A869 /* APIService.swift */; };
 		8DC2C5591DFB1EED0069A869 /* TempFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C5581DFB1EED0069A869 /* TempFetcher.swift */; };
 		8DC2C55B1DFB27070069A869 /* RealmListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */; };
+		C96023041E08CCA700477C2E /* NetworkClanFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023031E08CCA700477C2E /* NetworkClanFetcher.swift */; };
+		C96023061E08CCB800477C2E /* DatabaseClanFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */; };
+		C96023081E08CCD300477C2E /* ClanFetcherDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */; };
+		C960230A1E08CCE000477C2E /* ClanFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */; };
+		C960230C1E08CD4800477C2E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C960230B1E08CD4800477C2E /* DatabaseManager.swift */; };
 		C99DD0821DFE5166003BD1D7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0811DFE5166003BD1D7 /* Errors.swift */; };
 		C99DD0841DFFA98B003BD1D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0831DFFA98B003BD1D7 /* Network.swift */; };
 		C9AAFBC71E0716F30029EC19 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */; };
@@ -41,6 +46,11 @@
 		8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmListTransform.swift; sourceTree = "<group>"; };
 		945CCCB5B17BC702BF838DCC /* Pods-CoC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoC/Pods-CoC.debug.xcconfig"; sourceTree = "<group>"; };
 		A091BE1AD3617E483FAABC0C /* Pods-CoC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoC.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoC/Pods-CoC.release.xcconfig"; sourceTree = "<group>"; };
+		C96023031E08CCA700477C2E /* NetworkClanFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClanFetcher.swift; sourceTree = "<group>"; };
+		C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClanFetcher.swift; sourceTree = "<group>"; };
+		C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanFetcherDecorator.swift; sourceTree = "<group>"; };
+		C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanFetcherProtocol.swift; sourceTree = "<group>"; };
+		C960230B1E08CD4800477C2E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C99DD0811DFE5166003BD1D7 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C99DD0831DFFA98B003BD1D7 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
@@ -70,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2C53A1DFB188A0069A869 /* CoC */,
+				C96023021E08CC4900477C2E /* ClansOperator */,
 				8DC2C5391DFB188A0069A869 /* Products */,
 				C1A91FFF922EA36BBD96306B /* Pods */,
 				415E3725687F8985DEEA0A44 /* Frameworks */,
@@ -126,6 +137,7 @@
 				8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */,
 				C99DD0831DFFA98B003BD1D7 /* Network.swift */,
 				C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */,
+				C960230B1E08CD4800477C2E /* DatabaseManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -137,6 +149,18 @@
 				A091BE1AD3617E483FAABC0C /* Pods-CoC.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C96023021E08CC4900477C2E /* ClansOperator */ = {
+			isa = PBXGroup;
+			children = (
+				C96023031E08CCA700477C2E /* NetworkClanFetcher.swift */,
+				C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */,
+				C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */,
+				C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */,
+			);
+			name = ClansOperator;
+			path = CoC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +290,16 @@
 			files = (
 				8DC2C53E1DFB188A0069A869 /* ViewController.swift in Sources */,
 				8DC2C5571DFB1A9F0069A869 /* APIService.swift in Sources */,
+				C960230C1E08CD4800477C2E /* DatabaseManager.swift in Sources */,
 				8DC2C53C1DFB188A0069A869 /* AppDelegate.swift in Sources */,
 				8DC2C55B1DFB27070069A869 /* RealmListTransform.swift in Sources */,
+				C96023061E08CCB800477C2E /* DatabaseClanFetcher.swift in Sources */,
 				C99DD0821DFE5166003BD1D7 /* Errors.swift in Sources */,
+				C96023081E08CCD300477C2E /* ClanFetcherDecorator.swift in Sources */,
 				C99DD0841DFFA98B003BD1D7 /* Network.swift in Sources */,
 				8DC2C5591DFB1EED0069A869 /* TempFetcher.swift in Sources */,
+				C960230A1E08CCE000477C2E /* ClanFetcherProtocol.swift in Sources */,
+				C96023041E08CCA700477C2E /* NetworkClanFetcher.swift in Sources */,
 				C9AAFBC71E0716F30029EC19 /* Observable+ObjectMapper.swift in Sources */,
 				8DC2C54E1DFB19470069A869 /* Clan.swift in Sources */,
 				8DC2C5501DFB19560069A869 /* ClanContainer.swift in Sources */,

@@ -48,7 +48,7 @@ struct Network {
 	}
 }
 
-let activityPlugin = NetworkActivityPlugin { (change) in
+fileprivate let activityPlugin = NetworkActivityPlugin { (change) in
 	switch change {
 	case .began:
 			UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -59,7 +59,7 @@ let activityPlugin = NetworkActivityPlugin { (change) in
 
 public let logger = NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
 
-let endpointClosure = { (target: APIService) -> Endpoint<APIService> in
+fileprivate let endpointClosure = { (target: APIService) -> Endpoint<APIService> in
 	let url = target.baseURL.appendingPathComponent(target.path).absoluteString
 	var headers = ["Authorization": "Bearer \(Constants.samsaoKey)"]
 
