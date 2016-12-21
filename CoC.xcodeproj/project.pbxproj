@@ -80,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				8DC2C53A1DFB188A0069A869 /* CoC */,
-				C96023021E08CC4900477C2E /* ClansOperator */,
 				8DC2C5391DFB188A0069A869 /* Products */,
 				C1A91FFF922EA36BBD96306B /* Pods */,
 				415E3725687F8985DEEA0A44 /* Frameworks */,
@@ -98,6 +97,7 @@
 		8DC2C53A1DFB188A0069A869 /* CoC */ = {
 			isa = PBXGroup;
 			children = (
+				C96023021E08CC4900477C2E /* ClansOperator */,
 				8DC2C5521DFB1A4F0069A869 /* StubbedResponse */,
 				8DC2C53B1DFB188A0069A869 /* AppDelegate.swift */,
 				8DC2C53D1DFB188A0069A869 /* ViewController.swift */,
@@ -160,7 +160,6 @@
 				C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */,
 			);
 			name = ClansOperator;
-			path = CoC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
