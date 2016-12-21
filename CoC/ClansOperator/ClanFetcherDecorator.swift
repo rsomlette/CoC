@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RealmSwift
+import RxCocoa
 
 final class ClanFetcherDecorator: ClanFetcher {
 
@@ -27,7 +28,7 @@ final class ClanFetcherDecorator: ClanFetcher {
 
 	// MARK: Fetcher
 
-	func get(name: String) -> Observable<[Clan]> {
+	func get(name: String) -> Driver<[Clan]> {
 		return decoratedFetcher.get(name: name)
 //				.flatMapLatest { [weak self] (clans) -> Observable<[Clan]> in
 //					guard let `self` = self else { return Observable.error(NetworkError.invalidNetwork(code: 0, message: "Self is not there")) }

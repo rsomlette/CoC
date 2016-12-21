@@ -33,6 +33,7 @@ struct Network {
 	func request(service: APIService) -> Observable<Response> {
 		return provider
 			.request(service)
+			.observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
 			.do(onError: { (error) in
 				debugPrint(error)
 			})
@@ -44,6 +45,7 @@ struct Network {
 				default: return Observable<Response>.error(NetworkError.invalidNetwork(code: response.statusCode, message: String(data: response.data, encoding: String.Encoding.utf8)  ?? "No Message"))
 				}
 			})
+			.observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
 			.debug("Moya")
 	}
 }

@@ -8,9 +8,10 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import RealmSwift
 
 protocol ClanFetcher {
-	func get(name: String) -> Observable<[Clan]>
+	func get(name: String) -> Driver<[Clan]>
 	func save(clans: [Clan]) -> Observable<[Clan]>
 }

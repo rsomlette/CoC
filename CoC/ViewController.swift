@@ -52,11 +52,13 @@ class ViewController: UIViewController {
 
 	private func setupRx() { // TODO: Handle error
 		latestSearch.subscribeOn(MainScheduler.instance) //TODO: work more on the task priority. ConcurrentDispatchQueueScheduler(qos: DispatchQoS.background)
-			.flatMapLatest({ [weak self](search) -> Observable<[Clan]> in
-				guard let `self` = self else { return Observable.empty() }
+			.flatMapLatest({ [weak self](search) -> Driver<[Clan]> in
+				guard let `self` = self else { return Driver.never() }
 				return self.clanFetcher.get(name: search)
 			})
-			.bindTo(tableView.rx.items(cellIdentifier: String(describing: UITableViewCell.self), cellType: UITableViewCell.self)) { row, element, cell in
+			.observeOn(MainScheduler.instance)
+			.asDriver(onErrorJustReturn: [])
+			.drive(tableView.rx.items(cellIdentifier: String(describing: UITableViewCell.self), cellType: UITableViewCell.self)) { row, element, cell in
 				cell.textLabel?.text = element.name
 				cell.detailTextLabel?.text = "\(element.members) members"
 			}

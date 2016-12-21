@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RealmSwift
 import RxRealm
+import RxCocoa
 
 final class DatabaseClanFetcher: ClanFetcher {
 
@@ -25,11 +26,11 @@ final class DatabaseClanFetcher: ClanFetcher {
 
 	// Methods
 
-	func get(name: String) -> Observable<[Clan]> {
+	func get(name: String) -> Driver<[Clan]> {
 		// Do something
 		let predicate = NSPredicate(format: "name CONTAINS '\(name)'")
-		guard let clans = database.fetchObjects(Clan.self, filter: predicate) else { return Observable<[Clan]>.empty() }
-		return Observable.arrayFrom(clans)
+		guard let clans = database.fetchObjects(Clan.self, filter: predicate) else { return Driver.never() }
+		return Driver.just(clans.toArray())
 	}
 
 	@discardableResult func save(clans: [Clan]) -> Observable<[Clan]> {
