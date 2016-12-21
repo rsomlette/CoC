@@ -80,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				8DC2C53A1DFB188A0069A869 /* CoC */,
-				8DC2C5391DFB188A0069A869 /* Products */,
-				C1A91FFF922EA36BBD96306B /* Pods */,
 				415E3725687F8985DEEA0A44 /* Frameworks */,
+				C1A91FFF922EA36BBD96306B /* Pods */,
+				8DC2C5391DFB188A0069A869 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,16 +98,16 @@
 			isa = PBXGroup;
 			children = (
 				C96023021E08CC4900477C2E /* ClansOperator */,
-				8DC2C5521DFB1A4F0069A869 /* StubbedResponse */,
-				8DC2C53B1DFB188A0069A869 /* AppDelegate.swift */,
-				8DC2C53D1DFB188A0069A869 /* ViewController.swift */,
-				8DC2C5581DFB1EED0069A869 /* TempFetcher.swift */,
-				8DC2C53F1DFB188A0069A869 /* Main.storyboard */,
-				8DC2C5421DFB188A0069A869 /* Assets.xcassets */,
-				8DC2C5441DFB188A0069A869 /* LaunchScreen.storyboard */,
-				8DC2C5471DFB188A0069A869 /* Info.plist */,
 				8DC2C5551DFB1A8B0069A869 /* Helpers */,
 				8DC2C5511DFB1A160069A869 /* Models */,
+				8DC2C5521DFB1A4F0069A869 /* StubbedResponse */,
+				8DC2C53B1DFB188A0069A869 /* AppDelegate.swift */,
+				8DC2C5421DFB188A0069A869 /* Assets.xcassets */,
+				8DC2C5471DFB188A0069A869 /* Info.plist */,
+				8DC2C5441DFB188A0069A869 /* LaunchScreen.storyboard */,
+				8DC2C53F1DFB188A0069A869 /* Main.storyboard */,
+				8DC2C5581DFB1EED0069A869 /* TempFetcher.swift */,
+				8DC2C53D1DFB188A0069A869 /* ViewController.swift */,
 			);
 			path = CoC;
 			sourceTree = "<group>";
@@ -115,11 +115,12 @@
 		8DC2C5511DFB1A160069A869 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C99DD0811DFE5166003BD1D7 /* Errors.swift */,
 				8DC2C54D1DFB19470069A869 /* Clan.swift */,
 				8DC2C54F1DFB19560069A869 /* ClanContainer.swift */,
+				C99DD0811DFE5166003BD1D7 /* Errors.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8DC2C5521DFB1A4F0069A869 /* StubbedResponse */ = {
@@ -128,18 +129,20 @@
 				8DC2C5531DFB1A630069A869 /* Clans.json */,
 			);
 			name = StubbedResponse;
+			path = StubbedResponse;
 			sourceTree = "<group>";
 		};
 		8DC2C5551DFB1A8B0069A869 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				8DC2C5561DFB1A9F0069A869 /* APIService.swift */,
-				8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */,
+				C960230B1E08CD4800477C2E /* DatabaseManager.swift */,
 				C99DD0831DFFA98B003BD1D7 /* Network.swift */,
 				C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */,
-				C960230B1E08CD4800477C2E /* DatabaseManager.swift */,
+				8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */,
 			);
 			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C1A91FFF922EA36BBD96306B /* Pods */ = {
@@ -154,12 +157,13 @@
 		C96023021E08CC4900477C2E /* ClansOperator */ = {
 			isa = PBXGroup;
 			children = (
-				C96023031E08CCA700477C2E /* NetworkClanFetcher.swift */,
-				C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */,
 				C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */,
 				C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */,
+				C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */,
+				C96023031E08CCA700477C2E /* NetworkClanFetcher.swift */,
 			);
 			name = ClansOperator;
+			path = ClansOperator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,7 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8D0C794856D9A56995B6480B /* [CP] Copy Pods Resources */ = {
@@ -314,6 +318,7 @@
 				8DC2C5401DFB188A0069A869 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		8DC2C5441DFB188A0069A869 /* LaunchScreen.storyboard */ = {
@@ -322,6 +327,7 @@
 				8DC2C5451DFB188A0069A869 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
