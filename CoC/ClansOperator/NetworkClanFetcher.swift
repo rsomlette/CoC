@@ -24,7 +24,7 @@ final class NetworkClanFetcher: ClanFetcher {
 	func get(name: String) -> Observable<[Clan]> {
 		return network.request(service: APIService.Clans(search: name))
 					.mapObject(ClanContainer.self)
-					.flatMapLatest { Observable.arrayFrom($0.items) }
+					.flatMapLatest { Observable.just($0.items.toArray()) } // TODO: Maybe a better way?
 	}
 
 	func save(clans: [Clan]) -> Observable<[Clan]> {

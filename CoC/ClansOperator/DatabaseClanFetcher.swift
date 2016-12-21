@@ -32,7 +32,7 @@ final class DatabaseClanFetcher: ClanFetcher {
 		return Observable.arrayFrom(clans)
 	}
 
-	func save(clans: [Clan]) -> Observable<[Clan]> {
+	@discardableResult func save(clans: [Clan]) -> Observable<[Clan]> {
 		return Observable<[Clan]>.create({ [weak self] (observer) -> Disposable in
 			clans.forEach({ (clan) in
 				self?.database.update(object: clan)

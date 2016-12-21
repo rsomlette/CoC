@@ -28,14 +28,15 @@ final class ClanFetcherDecorator: ClanFetcher {
 	// MARK: Fetcher
 
 	func get(name: String) -> Observable<[Clan]> {
-		decoratedFetcher.get(name: name)
-				.flatMapLatest { [weak self] (clans) -> Observable<[Clan]> in
-					guard let `self` = self else { return Observable.error(NetworkError.invalidNetwork(code: 0, message: "Self is not there")) }
-					return self.databaseFetcher.save(clans: clans)
-				}.subscribe()
-				.addDisposableTo(disposeBag)
-
-		return databaseFetcher.get(name: name)
+		return decoratedFetcher.get(name: name)
+//				.flatMapLatest { [weak self] (clans) -> Observable<[Clan]> in
+//					guard let `self` = self else { return Observable.error(NetworkError.invalidNetwork(code: 0, message: "Self is not there")) }
+//					return self.databaseFetcher.save(clans: clans)
+//				}
+//			.subscribe()
+//				.addDisposableTo(disposeBag)
+//
+//		return databaseFetcher.get(name: name)
 	}
 
 	func save(clans: [Clan]) -> Observable<[Clan]> {
