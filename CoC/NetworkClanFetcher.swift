@@ -15,9 +15,19 @@ import RxRealm
 
 final class NetworkClanFetcher: ClanFetcher {
 
-	func get(name: String, provider: RxMoyaProvider<APIService>) -> Observable<List<Clan>> {
-		provider.request(service: APIService.Clans(search: name))
-			.mapObject(ClanContainer.self)
-			.flatMapLatest { Observable<List<Clan>>.just($0.items) }
+	let network: Network
+	
+	init(network: Network = Network()) {
+		self.network = network
+	}
+
+	func get(name: String) -> Observable<[Clan]> {
+		return network.request(service: APIService.Clans(search: name))
+					.mapObject(ClanContainer.self)
+					.flatMapLatest { Observable.arrayFrom($0.items) }
+	}
+
+	func save(clans: [Clan]) -> Observable<[Clan]> {
+		return Observable.empty()
 	}
 }

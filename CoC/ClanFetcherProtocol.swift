@@ -11,5 +11,6 @@ import RxSwift
 import RealmSwift
 
 protocol ClanFetcher {
-	func get(name: String) -> Observable<List<Clan>>
+	func get(name: String) -> Observable<[Clan]>
+	func save(clans: [Clan]) -> Observable<[Clan]>
 }

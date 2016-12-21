@@ -17,22 +17,29 @@ final class ClanFetcherDecorator: ClanFetcher {
 	private var databaseFetcher: ClanFetcher
 	private var decoratedFetcher: ClanFetcher
 	private let disposeBag = DisposeBag()
-	private let network: Network
 
 	// MARK: Initialization
 
-	required init(decoratedFetcher: ClanFetcher, databaseFetcher: ClanFetcher = DatabaseClanFetcher(), network: Network = Network()) {
+	required init(decoratedFetcher: ClanFetcher, databaseFetcher: ClanFetcher = DatabaseClanFetcher()) {
 		self.decoratedFetcher = decoratedFetcher
 		self.databaseFetcher = databaseFetcher
-		self.network = network
 	}
 
 	// MARK: Fetcher
 
-	func get(name: String) -> Observable<List<Clan>> {
-	
+	func get(name: String) -> Observable<[Clan]> {
+		decoratedFetcher.get(name: name)
+				.flatMapLatest { [weak self] (clans) -> Observable<[Clan]> in
+					guard let `self` = self else { return Observable.error(NetworkError.invalidNetwork(code: 0, message: "Self is not there")) }
+					return self.databaseFetcher.save(clans: clans)
+				}.subscribe()
+				.addDisposableTo(disposeBag)
+
+		return databaseFetcher.get(name: name)
 	}
 
-
+	func save(clans: [Clan]) -> Observable<[Clan]> {
+		return Observable.error(NetworkError.invalidNetwork(code: 0, message: "Save is not implemented"))
+	}
 
 }

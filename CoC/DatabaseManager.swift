@@ -13,7 +13,7 @@ protocol Database {
     func create(object: Object)
     func update(object: Object)
     func update<T: Object>(_ type: T.Type, values: [String: Any?])
-    func delete(object: Object)
+//    func delete(object: Object)
     func fetchObjects<T: Object>(_ type: T.Type, filter: NSPredicate?) -> Results<T>?
     func fetchObject<T: Object>(_ type: T.Type) -> T?
     func fetchObject<T: Object>(type: T.Type, id: Any) -> T?
@@ -55,23 +55,23 @@ final class DatabaseManager: Database {
         }
     }
 
-    func delete(object: Data) {
-        do {
-            try realm?.write {
-                // TODO: this is HOTFIX Ì†ΩÌ¥• should be a protocol that all objects conforms to
-                if let data = object as? FlightDetail {
-                    for subObjects in data.cascadeDelete() {
-                        if let sub = subObjects {
-                            realm?.delete(sub)
-                        }
-                    }
-                }
-                realm?.delete(object)
-            }
-        } catch {
-            // TODO: handle error ‚ö†Ô∏è
-        }
-    }
+//    func delete(object: Data) {
+//        do {
+//            try realm?.write {
+//                // TODO: this is HOTFIX Ì†ΩÌ¥• should be a protocol that all objects conforms to
+//                if let data = object as? FlightDetail {
+//                    for subObjects in data.cascadeDelete() {
+//                        if let sub = subObjects {
+//                            realm?.delete(sub)
+//                        }
+//                    }
+//                }
+//                realm?.delete(object)
+//            }
+//        } catch {
+//            // TODO: handle error ‚ö†Ô∏è
+//        }
+//    }
 
     func deleteAll() {
         do {
