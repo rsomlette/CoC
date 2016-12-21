@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D5635DF1E0AD801002BA4F9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5635DE1E0AD801002BA4F9 /* DatabaseManager.swift */; };
 		8DC2C53C1DFB188A0069A869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C53B1DFB188A0069A869 /* AppDelegate.swift */; };
 		8DC2C53E1DFB188A0069A869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2C53D1DFB188A0069A869 /* ViewController.swift */; };
 		8DC2C5411DFB188A0069A869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC2C53F1DFB188A0069A869 /* Main.storyboard */; };
@@ -22,7 +23,6 @@
 		C96023061E08CCB800477C2E /* DatabaseClanFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */; };
 		C96023081E08CCD300477C2E /* ClanFetcherDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */; };
 		C960230A1E08CCE000477C2E /* ClanFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */; };
-		C960230C1E08CD4800477C2E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C960230B1E08CD4800477C2E /* DatabaseManager.swift */; };
 		C99DD0821DFE5166003BD1D7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0811DFE5166003BD1D7 /* Errors.swift */; };
 		C99DD0841DFFA98B003BD1D7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99DD0831DFFA98B003BD1D7 /* Network.swift */; };
 		C9AAFBC71E0716F30029EC19 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */; };
@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		2269A03F0A81017156546083 /* Pods_CoC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5635DE1E0AD801002BA4F9 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8DC2C5381DFB188A0069A869 /* CoC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC2C53B1DFB188A0069A869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DC2C53D1DFB188A0069A869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		C96023051E08CCB800477C2E /* DatabaseClanFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseClanFetcher.swift; sourceTree = "<group>"; };
 		C96023071E08CCD300477C2E /* ClanFetcherDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanFetcherDecorator.swift; sourceTree = "<group>"; };
 		C96023091E08CCE000477C2E /* ClanFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanFetcherProtocol.swift; sourceTree = "<group>"; };
-		C960230B1E08CD4800477C2E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C99DD0811DFE5166003BD1D7 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C99DD0831DFFA98B003BD1D7 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
@@ -76,6 +76,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8D5635DD1E0AD725002BA4F9 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				C96023021E08CC4900477C2E /* ClansOperator */,
+				8DC2C5551DFB1A8B0069A869 /* Helpers */,
+				8DC2C5511DFB1A160069A869 /* Models */,
+				8DC2C5521DFB1A4F0069A869 /* StubbedResponse */,
+				C9595B671E0A3BC000F26819 /* Supporting Files */,
+				8DC2C5581DFB1EED0069A869 /* TempFetcher.swift */,
+				8DC2C53D1DFB188A0069A869 /* ViewController.swift */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
 		8DC2C52F1DFB188A0069A869 = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +111,7 @@
 		8DC2C53A1DFB188A0069A869 /* CoC */ = {
 			isa = PBXGroup;
 			children = (
-				C96023021E08CC4900477C2E /* ClansOperator */,
-				8DC2C5551DFB1A8B0069A869 /* Helpers */,
-				8DC2C5511DFB1A160069A869 /* Models */,
-				8DC2C5521DFB1A4F0069A869 /* StubbedResponse */,
-				C9595B671E0A3BC000F26819 /* Supporting Files */,
-				8DC2C5581DFB1EED0069A869 /* TempFetcher.swift */,
-				8DC2C53D1DFB188A0069A869 /* ViewController.swift */,
+				8D5635DD1E0AD725002BA4F9 /* Default */,
 			);
 			path = CoC;
 			sourceTree = "<group>";
@@ -130,10 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				8DC2C5561DFB1A9F0069A869 /* APIService.swift */,
-				C960230B1E08CD4800477C2E /* DatabaseManager.swift */,
 				C99DD0831DFFA98B003BD1D7 /* Network.swift */,
 				C9AAFBC61E0716F30029EC19 /* Observable+ObjectMapper.swift */,
 				8DC2C55A1DFB27070069A869 /* RealmListTransform.swift */,
+				8D5635DE1E0AD801002BA4F9 /* DatabaseManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -156,7 +164,6 @@
 				8DC2C5441DFB188A0069A869 /* LaunchScreen.storyboard */,
 				8DC2C53F1DFB188A0069A869 /* Main.storyboard */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -206,8 +213,7 @@
 				TargetAttributes = {
 					8DC2C5371DFB188A0069A869 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8UQUNTB23H;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -256,7 +262,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8D0C794856D9A56995B6480B /* [CP] Copy Pods Resources */ = {
@@ -298,7 +304,7 @@
 			files = (
 				8DC2C53E1DFB188A0069A869 /* ViewController.swift in Sources */,
 				8DC2C5571DFB1A9F0069A869 /* APIService.swift in Sources */,
-				C960230C1E08CD4800477C2E /* DatabaseManager.swift in Sources */,
+				8D5635DF1E0AD801002BA4F9 /* DatabaseManager.swift in Sources */,
 				8DC2C53C1DFB188A0069A869 /* AppDelegate.swift in Sources */,
 				8DC2C55B1DFB27070069A869 /* RealmListTransform.swift in Sources */,
 				C96023061E08CCB800477C2E /* DatabaseClanFetcher.swift in Sources */,
@@ -439,7 +445,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8UQUNTB23H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "CoC/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.samsao.CoC;
@@ -454,7 +460,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8UQUNTB23H;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "CoC/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.samsao.CoC;
