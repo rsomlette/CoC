@@ -26,4 +26,6 @@ target 'CoC' do
 #  pod 'RxAlamofire', '~> 3.0.0'
 #  pod 'ObjectMapper', '~> 2.0'
 #	pod 'AlamofireObjectMapper', '~> 4.0'
+
+	pod 'SnapKit'
 end

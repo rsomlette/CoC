@@ -26,6 +26,7 @@ PODS:
     - RealmSwift (~> 2.0)
     - RxSwift (~> 3.0.0)
   - RxSwift (3.0.1)
+  - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - Moya-ObjectMapper (from `https://github.com/ivanbruel/Moya-ObjectMapper`)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RxCocoa (~> 3.0.0)
   - RxRealm (~> 0.3.2)
   - RxSwift (~> 3.0.0)
+  - SnapKit
 
 EXTERNAL SOURCES:
   Moya-ObjectMapper:
@@ -55,7 +57,8 @@ SPEC CHECKSUMS:
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxRealm: 42a12f1e62d6b54a8529fe0292d52c8e9f9b3267
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 2d39cb77d2f85313e94344198b5f47f6bdff6893
+PODFILE CHECKSUM: 66b5ae5947eef8e5061319313341410fb32f32c0
 
 COCOAPODS: 1.1.1
