@@ -7,18 +7,72 @@
 //
 
 import UIKit
+import SnapKit
+
 
 class CustomCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	private(set) var title = UILabel(frame: .zero)
+	private(set) var members = UILabel(frame: .zero)
+	private(set) var level = UILabel(frame: .zero)
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	// MARK: - Lifecycle
 
-        // Configure the view for the selected state
-    }
+	public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		initializeUI()
+		createConstraints()
+	}
+
+	public required init?(coder: NSCoder) {
+		super.init(coder: coder)
+		fatalError("init:coder was not implemented")
+	}
+
+	// MARK: - Initialization
+
+	/**
+	Initialize UI
+	*/
+	public func initializeUI() {
+		contentView.addSubview(title)
+		contentView.addSubview(members)
+		contentView.addSubview(level)
+		selectionStyle = .none
+		backgroundColor = .lightGray
+		level.textColor = .orange
+
+	}
+
+	/**
+	Creating the constraints
+	*/
+	private func createConstraints() {
+		level.snp.makeConstraints { (make) in
+			make.centerY.equalToSuperview()
+			make.right.equalToSuperview().offset(-5)
+		}
+		title.snp.makeConstraints { (make) in
+			make.left.equalToSuperview().offset(5)
+			make.centerY.equalToSuperview()
+		}
+		members.snp.makeConstraints { (make) in
+			make.left.equalTo(title.snp.right).offset(5)
+			make.centerY.equalToSuperview()
+		}
+	}
+
+	// MARK: - Update UI
+
+	/**
+	Configuring the cell
+	- parameter cellData:
+	*/
+	 func configureCell(cellData: Clan) {
+		// OVERRIDE
+		title.text = cellData.name
+		members.text = "\(cellData.members) members"
+		level.text = "\(cellData.clanLevel)"
+	}
 
 }
