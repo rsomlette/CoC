@@ -28,7 +28,6 @@ class ViewController: UIViewController {
 	let disposeBag = DisposeBag()
 	var provider: Network! // need to keep a reference to the network. will be implemented in the fetcher's init.
 	var clanFetcher: ClanFetcher!
-//	var tempFetcher: TempFetcher!
 
 	var latestSearch: Observable<String> {
 		return searchBar.rx
@@ -43,9 +42,9 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		setupRx()
-//		self.tempFetcher = TempFetcher()
+
 		provider = Network()
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+		tableView.register(CustomCell.self, forCellReuseIdentifier: "Cell")
 		clanFetcher = ClanFetcherDecorator(decoratedFetcher: NetworkClanFetcher())
 	}
 
@@ -56,11 +55,14 @@ class ViewController: UIViewController {
 				guard let `self` = self else { return Observable.empty() }
 				return self.clanFetcher.get(name: search)
 			})
-			.bindTo(tableView.rx.items(cellIdentifier: String(describing: UITableViewCell.self), cellType: UITableViewCell.self)) { row, element, cell in
-				cell.textLabel?.text = element.name
-				cell.detailTextLabel?.text = "\(element.members) members"
+			.bindTo(tableView.rx.items(cellIdentifier: "Cell", cellType: CustomCell.self)) { row, element, cell in
+				cell.configureCell(cellData: element)
 			}
 			.addDisposableTo(disposeBag)
+
+		tableView.rx.modelSelected(Clan.self).subscribe(onNext: { (clan) in
+			debugPrint(clan)
+		}).addDisposableTo(disposeBag)
 
 	}
 
